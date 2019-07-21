@@ -1,0 +1,71 @@
+                Trace Summary
+
+Service Level :
+        JRE 1.8.0 Linux amd64-64 (build 1.8.0_181-b13)
+
+JVM Start-up Params :
+-Xoptionsfile=/home/manjotsidhu/openjdk8/jre/lib/amd64/compressedrefs/options.default
+-Xlockword:mode=default,noLockword=java/lang/String,noLockword=java/util/MapEntry,noLockword=java/util/HashMap$Entry,noLockword=org/apache/harmony/luni/util/ModifiedMap$Entry,noLockword=java/util/Hashtable$Entry,noLockword=java/lang/invoke/MethodType,noLockword=java/lang/invoke/MethodHandle,noLockword=java/lang/invoke/CollectHandle,noLockword=java/lang/invoke/ConstructorHandle,noLockword=java/lang/invoke/ConvertHandle,noLockword=java/lang/invoke/ArgumentConversionHandle,noLockword=java/lang/invoke/AsTypeHandle,noLockword=java/lang/invoke/ExplicitCastHandle,noLockword=java/lang/invoke/FilterReturnHandle,noLockword=java/lang/invoke/DirectHandle,noLockword=java/lang/invoke/ReceiverBoundHandle,noLockword=java/lang/invoke/DynamicInvokerHandle,noLockword=java/lang/invoke/FieldHandle,noLockword=java/lang/invoke/FieldGetterHandle,noLockword=java/lang/invoke/FieldSetterHandle,noLockword=java/lang/invoke/StaticFieldGetterHandle,noLockword=java/lang/invoke/StaticFieldSetterHandle,noLockword=java/lang/invoke/IndirectHandle,noLockword=java/lang/invoke/InterfaceHandle,noLockword=java/lang/invoke/VirtualHandle,noLockword=java/lang/invoke/PrimitiveHandle,noLockword=java/lang/invoke/InvokeExactHandle,noLockword=java/lang/invoke/InvokeGenericHandle,noLockword=java/lang/invoke/VarargsCollectorHandle,noLockword=java/lang/invoke/ThunkTuple
+-Xjcl:jclse7b_29
+-Dcom.ibm.oti.vm.bootstrap.library.path=/home/manjotsidhu/openjdk8/jre/lib/amd64/compressedrefs:/home/manjotsidhu/openjdk8/jre/lib/amd64
+-Dsun.boot.library.path=/home/manjotsidhu/openjdk8/jre/lib/amd64/compressedrefs:/home/manjotsidhu/openjdk8/jre/lib/amd64
+-Djava.library.path=/home/manjotsidhu/openjdk8/jre/lib/amd64/compressedrefs:/home/manjotsidhu/openjdk8/jre/lib/amd64:/usr/lib64:/usr/lib
+-Djava.home=/home/manjotsidhu/openjdk8/jre
+-Djava.ext.dirs=/home/manjotsidhu/openjdk8/jre/lib/ext
+-Duser.dir=/home/manjotsidhu/IBMHackChallenge/MethodTraceAnalyser/sample_logs/src_logGen
+-Djava.class.path=.
+-Xtrace:none
+-Xtrace:maximal=ProjLog1,output=ProjLog1_d.trc
+-Dsun.java.command=ProjLog1_d
+-Dsun.java.launcher=SUN_STANDARD
+-Dsun.java.launcher.pid=16341
+
+
+Activation Info :
+        FORMAT=/home/manjotsidhu/openjdk8/jre/lib;.
+        MAXIMAL=all{level1}
+        EXCEPTION=j9mm{gclogger}
+        MAXIMAL=all{level2}
+        none
+        maximal=ProjLog1
+        output=ProjLog1_d.trc
+
+Sys Processor Info :
+        Arch family AMD64
+        Processor Sub-type Opteron
+        Num Processors 4
+        Big Endian false
+        Word size 64
+        Using Trace Counter J9 timer
+
+Active Threads :
+        0xaa8700  main
+
+JVM started      : 15:27:09.785000000
+
+Last buffer write: 15:27:10.260120000
+
+First tracepoint:  15:27:09.884220000
+
+Last tracepoint :  15:27:10.260120000
+
+
+                Trace Formatted Data 
+
+J9 timer(UTC)        ThreadID               TP id     Type        TraceEntry 
+15:27:09.884228000           *0xaa8700   ProjLog1.2    AppTrace   -Event id 1, text = Trace initialized
+15:27:09.884262000            0xaa8700   ProjLog1.0    AppTrace   >method1
+15:27:11.974862000            0xaa8700   ProjLog1.1    AppTrace   <method1
+15:27:09.974901000            0xaa8700   ProjLog1.0    AppTrace   >method2
+15:27:10.020066000            0xaa8700   ProjLog1.1    AppTrace   <method2
+15:27:10.020106000            0xaa8700   ProjLog1.0    AppTrace   >method3
+15:27:10.040273000            0xaa8700   ProjLog1.1    AppTrace   <method3
+15:27:10.040313000            0xaa8700   ProjLog1.0    AppTrace   >method4
+15:27:10.112486000            0xaa8700   ProjLog1.1    AppTrace   <method4
+15:27:10.112529000            0xaa8700   ProjLog1.0    AppTrace   >method5
+15:27:10.112621000            0xaa8700   ProjLog1.0    AppTrace   >method2
+15:27:10.157766000            0xaa8700   ProjLog1.1    AppTrace   <method2
+15:27:10.157783000            0xaa8700   ProjLog1.0    AppTrace   >method4
+15:27:10.230024000            0xaa8700   ProjLog1.1    AppTrace   <method4
+15:27:10.260107000            0xaa8700   ProjLog1.1    AppTrace   <method5
+15:27:10.260120000            0xaa8700         dg.262  Debug       ***** Thread termination - trace purged *****

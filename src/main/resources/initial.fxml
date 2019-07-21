@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="299.0" prefWidth="500.0" scaleShape="false" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.manjotsidhu.methodtraceanalyser.MainSController">
+   <children>
+      <Label alignment="CENTER" layoutX="33.0" layoutY="78.0" prefHeight="33.0" prefWidth="444.0" text="Select Files to Analyse :">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Button fx:id="browse" layoutX="213.0" layoutY="174.0" mnemonicParsing="false" onAction="#sds" prefHeight="25.0" text="Browse" />
+      <TextArea fx:id="filesLabel" layoutX="110.0" layoutY="111.0" prefHeight="53.0" prefWidth="296.0" />
+      <VBox prefHeight="200.0" prefWidth="100.0" />
+   </children>
+</Pane>
