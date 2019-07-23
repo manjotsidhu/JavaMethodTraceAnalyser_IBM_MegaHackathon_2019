@@ -204,7 +204,7 @@ public class MainController {
                 
                 Anomalies anomalies = new Anomalies(pFile, logFiles.toArray(new File[2]));
                 oneToManyAnomalies = anomalies.anomalies();
-                anomaliesArray = Tools.toStringArray(anomalies.anomalies(), anomalies.anomalies().size());
+                anomaliesArray = Tools.toStringArray(anomalies.anomalies(), Tools.maxInnerArraySize(anomalies.anomalies()));
                 updateOTMAnomaliesList();
             }
             
