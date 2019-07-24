@@ -86,11 +86,12 @@ public class BatchAnomalies {
             avg3 += (Integer) arr3[i];
         }
         
-        Object[] arr3Backup = arr3;
+        Object[] arr3Backup = new Object[arr3.length];
+        System.arraycopy(arr3, 0, arr3Backup, 0, arr3.length);
         Arrays.sort(arr3);
         avg3 /= arr3.length;
-        
-        if ((Integer) arr3[arr3.length-1] > avg3) {   
+
+        if ((Integer) arr3[arr3.length-1] > avg3) {
             String file = (String) files.get(Tools.find(arr3Backup, 0, arr3[arr3.length-1])+1);
             
             addCodeFlowAnomaly(file);
@@ -132,7 +133,7 @@ public class BatchAnomalies {
     }
     
     private void addCodeFlowAnomaly(String file) {
-        batchAnomalies.add("File '" + file + "' has a different code flow.");
+        batchAnomalies.add("File '" + file + "' has odd code-flow from others.");
     }
     
     private void addJSTAnomaly(String file, String method) {
