@@ -47,6 +47,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -348,6 +349,7 @@ public class MainController {
         data.remove(0);//remove titles from data
         for (int i = 0; i < codeFlowArrayTable[0].length; i++) {
             TableColumn tc = new TableColumn(codeFlowArrayTable[0][i]);
+            tc.setSortable(false);
             final int colNo = i;
             tc.setCellValueFactory(new Callback<CellDataFeatures<String[], String>, ObservableValue<String>>() {
                 @Override
@@ -367,12 +369,12 @@ public class MainController {
                             
                             if(item != null && item.contains("<out>")) {
                                 // out
-                                this.setStyle("-fx-background-color: #33cccc;");
+                                this.setTextFill(Color.BLUE);
                             } else if (item != null && item.contains("<in>")) {
                                 // in
-                                this.setStyle("-fx-background-color: #99ff33;");
+                                this.setTextFill(Color.GREEN);
                             } else {
-                                this.setStyle("-fx-background-color: white;");
+                                this.setTextFill(Color.WHITE);
                             }
                     }
                 };
