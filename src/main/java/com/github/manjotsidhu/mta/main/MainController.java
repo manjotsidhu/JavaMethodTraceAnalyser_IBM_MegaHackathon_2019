@@ -41,6 +41,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -220,8 +221,8 @@ public class MainController {
             nMethodsArray = Tools.toStringArrayAlt(analyser.getAnalysedNMethods(), (Integer) ((ArrayList) analyser.getAnalysedNMethods().get(0)).size());
             nMethodsArrayTable = Tools.toStringArray(analyser.getAnalysedNMethods(), (Integer) ((ArrayList) analyser.getAnalysedNMethods().get(0)).size(), stringFilesList.toArray(new String[stringFilesList.size()]));
             
-            codeFlowArray = Tools.toStringArray(analyser.getLogText(), Tools.maxInnerArraySize(analyser.getLogText()));
-            codeFlowArrayTable = Tools.toStringArray(analyser.getLogText(), Tools.maxInnerArraySize(analyser.getLogText()), (String[]) stringFilesListCF.toArray(new String[stringFilesListCF.size()]));
+            //codeFlowArray = Tools.toStringArrayAlt(analyser.getLogText(), Tools.maxInnerArraySize(analyser.getLogText()));
+            codeFlowArrayTable = Tools.toStringArrayMethods(analyser.getLogText(), Tools.maxInnerArraySize(analyser.getLogText()), (String[]) stringFilesListCF.toArray(new String[stringFilesListCF.size()]));
         
             jSTArray = Tools.toStringArrayAlt(analyser.getAnalysedJST(), (Integer) ((ArrayList) analyser.getAnalysedJST().get(0)).size());
             jSTArrayTable = Tools.toStringArray(analyser.getAnalysedJST(), (Integer) ((ArrayList) analyser.getAnalysedJST().get(0)).size(), (String[]) stringFilesList.toArray(new String[stringFilesList.size()]));
@@ -340,7 +341,7 @@ public class MainController {
         
     }
     
-    private void populateCodeFlowTable() {
+    private void populateCodeFlowTable() {        
         codeFlowTable.getColumns().clear();
         ObservableList<String[]> data = FXCollections.observableArrayList();
         data.addAll(Arrays.asList(codeFlowArrayTable));
@@ -350,9 +351,31 @@ public class MainController {
             final int colNo = i;
             tc.setCellValueFactory(new Callback<CellDataFeatures<String[], String>, ObservableValue<String>>() {
                 @Override
-                public ObservableValue<String> call(CellDataFeatures<String[], String> p) {
-                    return new SimpleStringProperty((p.getValue()[colNo]));
+                public ObservableValue<String> call(CellDataFeatures<String[], String> p) {           
+                    return new SimpleStringProperty((p.getValue()[colNo]));                    
                 }
+            });
+            
+            tc.setCellFactory(e -> {
+                return new TableCell<ObservableList<String>, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        // Always invoke super constructor.
+                        super.updateItem(item, empty);
+                        
+                            setText(item);
+                            
+                            if(item != null && item.contains("<out>")) {
+                                // out
+                                this.setStyle("-fx-background-color: #33cccc;");
+                            } else if (item != null && item.contains("<in>")) {
+                                // in
+                                this.setStyle("-fx-background-color: #99ff33;");
+                            } else {
+                                this.setStyle("-fx-background-color: white;");
+                            }
+                    }
+                };
             });
 
             codeFlowTable.getColumns().add(tc);
@@ -444,7 +467,7 @@ public class MainController {
     
     private void plotNMethodsBarChart() {
         nMethodsBarChart.getData().clear();
-        CategoryAxis xAxis    = new CategoryAxis();
+        CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("Methods");
 
         NumberAxis yAxis = new NumberAxis();
