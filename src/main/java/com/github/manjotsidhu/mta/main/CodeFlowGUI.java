@@ -20,6 +20,7 @@ import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.util.mxConstants;
 import com.mxgraph.view.mxEdgeStyle;
 import com.mxgraph.view.mxGraph;
+import com.mxgraph.view.mxStylesheet;
 import java.awt.Graphics;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,8 +44,16 @@ public class CodeFlowGUI extends JFrame {
         
         int[] yOffset = null;
         try {
-            Map<String, Object> style = graph.getStylesheet().getDefaultEdgeStyle();
-            style.put(mxConstants.STYLE_EDGE, mxEdgeStyle.SegmentConnector);
+            Map<String, Object> Estyle = graph.getStylesheet().getDefaultEdgeStyle();
+            Estyle.put(mxConstants.STYLE_EDGE, mxEdgeStyle.SegmentConnector);
+            
+            Map<String, Object> Vstyle = graph.getStylesheet().getDefaultVertexStyle();
+            Vstyle.put(mxConstants.STYLE_FONTSIZE, 15);
+            
+            mxStylesheet stylesheet = new mxStylesheet();
+            stylesheet.setDefaultVertexStyle(Vstyle);
+            stylesheet.setDefaultEdgeStyle(Estyle);
+            graph.setStylesheet(stylesheet);
             
             int[] xOffset = new int[logFiles.size()];
             xOffset[0] = 15;
@@ -78,9 +87,9 @@ public class CodeFlowGUI extends JFrame {
                     
                     Object v1;
                     if (hs.size() > 1 && itr != 1)
-                        v1 = graph.insertVertex(parent, null, parsedText[itr-1][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr-1][j].length() * 6.5, 30 , "fillColor=#eb6e34");
+                        v1 = graph.insertVertex(parent, null, parsedText[itr-1][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr-1][j].length() * 8.5, 30 , "fillColor=#eb6e34");
                     else
-                        v1 = graph.insertVertex(parent, null, parsedText[itr-1][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr-1][j].length() * 6.5, 30);
+                        v1 = graph.insertVertex(parent, null, parsedText[itr-1][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr-1][j].length() * 8.5, 30);
                     
                     hs = new HashSet();
                     
@@ -93,15 +102,14 @@ public class CodeFlowGUI extends JFrame {
                                         
                     yOffset[j] = yOffset[j] + 50;
                     if (parsedText[itr][j] == null) continue;
-                    
+                                        
                     Object v2;
                     if (hs.size() > 1 && itr != 1)
-                        v2 = graph.insertVertex(parent, null, parsedText[itr][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr][j].length() * 6.5, 30, "fillColor=#eb6e34");
+                        v2 = graph.insertVertex(parent, null, parsedText[itr][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr][j].length() *8.5, 30, "fillColor=#eb6e34");
                     else
-                        v2 = graph.insertVertex(parent, null, parsedText[itr][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr][j].length() * 6.5, 30);
+                        v2 = graph.insertVertex(parent, null, parsedText[itr][j], xOffset[j] + level * xMultiplier, yOffset[j], parsedText[itr][j].length() * 8.5, 30);
                     
                     graph.insertEdge(parent, null, "", v1, v2, mxConstants.EDGESTYLE_TOPTOBOTTOM);
-                    
                 }
                 t++;
             }
