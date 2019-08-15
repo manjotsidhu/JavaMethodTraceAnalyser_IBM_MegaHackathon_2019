@@ -213,7 +213,7 @@ public class MainController {
                 updateOTMAnomaliesList();
             }
             
-            Analyser analyser = new Analyser(filesList.toArray(new File[filesList.size()]));
+            Analyser analyser = new Analyser(filesList.toArray(new File[filesList.size()]), bAnomaliesRadio.isSelected());
             if(logFiles.size() > 2 && bAnomaliesRadio.isSelected()) {
                 batchAnomalies = analyser.getBatchAnomalies();
                 updateBAnomaliesList();
@@ -271,8 +271,7 @@ public class MainController {
     private void visualizeCodeFlow() {
         cF.setSize(500, 500);
         cF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        cF.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-        //cF.setUndecorated(true);
+        cF.setExtendedState(JFrame.MAXIMIZED_BOTH);
         cF.setVisible(true);
         
     }

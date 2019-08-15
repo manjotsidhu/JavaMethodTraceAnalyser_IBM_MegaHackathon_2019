@@ -309,11 +309,10 @@ public class Tools {
         String[][] newArr = new String[y+1][arr.size()];
         try {
             for (int i = 0; i < arr.size(); i++) {
-                    newArr[0][i] = files[i];
+                newArr[0][i] = files[i];
                 for (int j = 1; j < ((ArrayList) arr.get(i)).size()+1; j++) {
                     String s = String.valueOf(((ArrayList) arr.get(i)).get(j-1));
                     if (buf.contains(s)) {
-                        // out
                         buf.remove(s);
                         s += " <out>";
                     } else {
@@ -322,6 +321,7 @@ public class Tools {
                     }
                     newArr[j][i] = s;
                 }
+                buf = new ArrayList<>();
             }
         } catch (Exception e) {
             System.err.println("Tools: toStringArray [FAILED]");

@@ -21,6 +21,8 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The heart of Method Trace Analyser which analyses method time invocation,
@@ -43,7 +45,9 @@ public class Analyser {
     
     private BatchAnomalies bAnomalies;
     
-    public Analyser(File[] files) throws IOException {
+    Map<String,String> methodsMissing = new HashMap<>();
+    
+    public Analyser(File[] files, boolean enableBatchAnomalies) throws IOException {
         analysedTime.add(analysedTimeMethods);
         logFiles.add("Methods");
         boolean firstItr = true;
@@ -66,8 +70,10 @@ public class Analyser {
             logFiles.add(file.getName());
             firstItr = false;
         }
-        if (logFiles.size() > 3)
+        if (logFiles.size() > 3 && enableBatchAnomalies) {
             bAnomalies = new BatchAnomalies(logFiles, analysedTime, analysedNMethods, logSequence, analysedJST);
+            bAnomalies.addMethodMissingAnomaly(methodsMissing);
+        }
     }
 
     /**
@@ -90,7 +96,10 @@ public class Analyser {
             int secondIndex = Tools.find(parsedSequence, firstIndex + 1, iteration);
             // if secondIndex is not found then surely method is not out.
             if (secondIndex == -1 ) {
-                bAnomalies.addMethodMissingAnomaly(file.getName(), (String) parsedText.get(firstIndex));
+                methodsMissing.put(file.getName(), (String) parsedText.get(firstIndex));
+                results.add(-1l);
+
+                continue;
             }
             
             long timeTaken = 0;
@@ -135,6 +144,11 @@ public class Analyser {
         for (int iteration = 1; iteration <= nMethods; iteration++) {
             int timeIndex = Tools.find(parsedSequence, 0, iteration);
             int index = Tools.find(methods, 0, (String) parsedText.get(timeIndex));
+            if (index == -1) {
+                // method is not out
+                continue;
+            }
+            
             int count = Tools.count(parsedText, (String) parsedText.get(timeIndex)) / 2;
             Tools.extendArrayIndex(aryResults, index);
             aryResults.set(index, count);

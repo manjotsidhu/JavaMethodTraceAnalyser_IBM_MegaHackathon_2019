@@ -18,6 +18,7 @@ package com.github.manjotsidhu.mta.analyser;
 import com.github.manjotsidhu.mta.Tools;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 /**
  * compares and brings out anomalies from log files mutually.
@@ -130,6 +131,12 @@ public class BatchAnomalies {
     
     void addMethodMissingAnomaly(String file, String method) {
         batchAnomalies.add("Method '" + method + "' didn't completed its execution.");
+    }
+    
+    void addMethodMissingAnomaly(Map<String, String> methodsMissing) {
+        methodsMissing.entrySet().forEach((entry) -> {
+            addMethodMissingAnomaly(entry.getKey(),entry.getValue());
+        });
     }
     
     private void addCodeFlowAnomaly(String file) {

@@ -300,7 +300,7 @@ public class Anomalies {
     private void anomaliesMethodMissing(Object methodName) {
         fMethodMissing.add(new ArrayList());
         ((ArrayList) fMethodMissing.get(fMethodMissing.size()-1)).add((String)methodName);
-        ((ArrayList) anomalies.get(anomalies.size()-1)).add("Method " + methodName + " was not exited");
+        ((ArrayList) anomalies.get(anomalies.size()-1)).add("Method " + methodName + " didn't completed its execution.");
     }
     
     private void anomaliesNMethods() {
