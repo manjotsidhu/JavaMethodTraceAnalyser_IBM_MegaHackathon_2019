@@ -205,7 +205,7 @@ public class Analyser {
      *
      * @return 1D ArrayList of sequence of methods denoted by unique numbers.
      */
-    public ArrayList<Integer> getLogSequence() {
+    public ArrayList getLogSequence() {
         return logSequence;
     }
 

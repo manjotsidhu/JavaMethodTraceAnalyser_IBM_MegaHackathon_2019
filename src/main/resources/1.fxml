@@ -230,6 +230,7 @@
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
+                                    <Button mnemonicParsing="false" onAction="#visualizeCodeFlow" text="Visualize" />
                                     <Separator minWidth="-Infinity">
                                        <padding>
                                           <Insets bottom="10.0" />

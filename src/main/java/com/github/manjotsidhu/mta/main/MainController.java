@@ -52,6 +52,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.swing.JFrame;
 
 /**
  * Main controller file for the backend of FXML.
@@ -83,6 +84,8 @@ public class MainController {
     Stage stage;
     
     File SampleLogFilesFolder = new File("./sample_logs");
+    
+    CodeFlowGUI cF;
     
     @FXML
     private RadioButton anomaliesRadio;
@@ -225,6 +228,8 @@ public class MainController {
             //codeFlowArray = Tools.toStringArrayAlt(analyser.getLogText(), Tools.maxInnerArraySize(analyser.getLogText()));
             codeFlowArrayTable = Tools.toStringArrayMethods(analyser.getLogText(), Tools.maxInnerArraySize(analyser.getLogText()), (String[]) stringFilesListCF.toArray(new String[stringFilesListCF.size()]));
         
+            cF = new CodeFlowGUI(codeFlowArrayTable, stringLogFiles, analyser.getLogSequence(), "CodeFlow");
+            
             jSTArray = Tools.toStringArrayAlt(analyser.getAnalysedJST(), (Integer) ((ArrayList) analyser.getAnalysedJST().get(0)).size());
             jSTArrayTable = Tools.toStringArray(analyser.getAnalysedJST(), (Integer) ((ArrayList) analyser.getAnalysedJST().get(0)).size(), (String[]) stringFilesList.toArray(new String[stringFilesList.size()]));
             
@@ -260,6 +265,16 @@ public class MainController {
         }
         
         updateSelectedFilesList();
+    }
+    
+    @FXML
+    private void visualizeCodeFlow() {
+        cF.setSize(500, 500);
+        cF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        cF.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        //cF.setUndecorated(true);
+        cF.setVisible(true);
+        
     }
     
     private void updateSelectedFilesList() {
@@ -365,17 +380,17 @@ public class MainController {
                         // Always invoke super constructor.
                         super.updateItem(item, empty);
                         
-                            setText(item);
-                            
-                            if(item != null && item.contains("<out>")) {
-                                // out
-                                this.setTextFill(Color.BLUE);
-                            } else if (item != null && item.contains("<in>")) {
-                                // in
-                                this.setTextFill(Color.GREEN);
-                            } else {
-                                this.setTextFill(Color.WHITE);
-                            }
+                        setText(item);
+
+                        if(item != null && item.contains("<out>")) {
+                            // out
+                            this.setTextFill(Color.BLUE);
+                        } else if (item != null && item.contains("<in>")) {
+                            // in
+                            this.setTextFill(Color.GREEN);
+                        } else {
+                            this.setTextFill(Color.WHITE);
+                        }
                     }
                 };
             });
