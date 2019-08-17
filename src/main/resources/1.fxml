@@ -21,7 +21,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.manjotsidhu.mta.main.MainController">
@@ -78,13 +77,23 @@
                             <Font size="18.0" fx:id="x1" />
                           </font>
                         </Label>
-                              <Button fx:id="browseButton" mnemonicParsing="false" onAction="#browseAction" text="Select log files">
-                                 <VBox.margin>
-                                    <Insets top="10.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font></Button>
+                              <HBox>
+                                 <children>
+                                    <Button fx:id="browseButton" alignment="CENTER" mnemonicParsing="false" onAction="#browseAction" text="Import Trace Logs">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#traceClassAction" text="Trace Class">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="5.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
                               <RadioButton fx:id="anomaliesRadio" mnemonicParsing="false" onAction="#anomaliesRadioAction" text="Enable One to Many Anomalies" wrapText="true">
                                  <VBox.margin>
                                     <Insets top="10.0" />
@@ -311,16 +320,12 @@
     </SplitPane>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
       <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Manjot SIngh Sidhu, CHRIST (Deemed To be University)" HBox.hgrow="ALWAYS">
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Manjot SIngh Sidhu, CHRIST (Deemed To be University)" textFill="#4c4949" HBox.hgrow="ALWAYS">
           <font>
             <Font size="11.0" fx:id="x3" />
           </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
         </Label>
         <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-        <Label font="$x3" maxWidth="-1.0" text="Ready" textFill="$x4" HBox.hgrow="NEVER" />
       </children>
       <padding>
         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

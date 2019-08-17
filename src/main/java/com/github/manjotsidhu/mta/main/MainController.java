@@ -18,11 +18,16 @@ package com.github.manjotsidhu.mta.main;
 import com.github.manjotsidhu.mta.Tools;
 import com.github.manjotsidhu.mta.analyser.Anomalies;
 import com.github.manjotsidhu.mta.analyser.Analyser;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
@@ -30,7 +35,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
@@ -38,6 +45,10 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
@@ -45,7 +56,10 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -83,7 +97,7 @@ public class MainController {
     
     Stage stage;
     
-    File SampleLogFilesFolder = new File("./sample_logs");
+    File sampleLogFilesFolder = new File("./sample_logs");
     
     CodeFlowGUI cF;
     
@@ -158,7 +172,7 @@ public class MainController {
     private void browseAction(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         
-        fileChooser.setInitialDirectory(SampleLogFilesFolder);
+        fileChooser.setInitialDirectory(sampleLogFilesFolder);
         List<File> selectedFiles = fileChooser.showOpenMultipleDialog(stage);
         
         if (selectedFiles != null) {
@@ -172,16 +186,16 @@ public class MainController {
             logFiles.forEach((f) -> {
                 stringLogFiles.add(f.getName());
             });
-            
+
             updateSelectedFilesList();
         }
     }
-    
+        
     @FXML
     private void primaryBrowseAction() {
         FileChooser fileChooser = new FileChooser();
         
-        fileChooser.setInitialDirectory(SampleLogFilesFolder);
+        fileChooser.setInitialDirectory(sampleLogFilesFolder);
         pFile = fileChooser.showOpenDialog(stage);
         
         if (pFile != null)
@@ -273,7 +287,108 @@ public class MainController {
         cF.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         cF.setExtendedState(JFrame.MAXIMIZED_BOTH);
         cF.setVisible(true);
+    }
+    
+    @FXML
+    private void traceClassAction() {
+        Dialog<String[]> dialog = new Dialog<>();
+        dialog.setTitle("Trace class files");
+        dialog.setHeaderText("Class Tracing");
+
+        ButtonType loginButtonType = new ButtonType("Trace", ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(loginButtonType, ButtonType.CANCEL);
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(20, 150, 10, 10));
+
+        TextField browseField = new TextField();
+        TextField methodsField = new TextField();
+        TextField vmField = new TextField();
         
+        Button browseBtn = new Button("Browse");
+        browseBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FileChooser fileChooser = new FileChooser();
+        
+                fileChooser.setInitialDirectory(sampleLogFilesFolder);
+                File selectedFile = fileChooser.showOpenDialog(stage);
+
+                if (selectedFile != null) {
+                    browseField.setText(selectedFile.getName());
+                }
+            }
+        });
+        
+        grid.add(new Label("Select Class file:"), 0, 0);
+        grid.add(browseField, 1, 0);
+        grid.add(browseBtn, 2, 0);
+        grid.add(new Label("Methods:"), 0, 1);
+        grid.add(methodsField, 1, 1);
+        grid.add(new Label("VM arguments:"), 0, 2);
+        grid.add(vmField, 1, 2);
+
+        dialog.getDialogPane().setContent(grid);
+
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == loginButtonType) {
+                String[] ar = {browseField.getText(), methodsField.getText(), vmField.getText()};
+                return ar;
+            }
+        return null;
+        });
+        
+        Optional<String[]> result = dialog.showAndWait();
+
+        result.ifPresent(data -> {
+            classToLogGen(data[0], data[1], data[2]);
+            logFiles.add(new File("sample_logs/" + data[0].split(".class")[0] + ".fmt"));
+            stringLogFiles.add(logFiles.get(logFiles.size()-1).getName());
+            updateSelectedFilesList();
+        });
+    }
+    
+    private void classToLogGen(String srcFile, String methods, String vm_args) {
+        Process p;
+        try {
+            List<String> cmdList = new ArrayList<>();
+            cmdList.add("cmd");
+            cmdList.add("/c");
+            cmdList.add("cd");
+            cmdList.add(System.getProperty("user.dir"));
+            cmdList.add("&&");
+            cmdList.add(".\\openjdk\\bin\\java.exe");
+            cmdList.add("\"-Xtrace:none\"");
+            cmdList.add("\"-Xtrace:output=sample_logs\\"+srcFile.split(".class")[0]+".trc,maximal=mt,methods={"+methods+"},trigger=method{"+methods+",jstacktrace}\"");
+            cmdList.add(srcFile.split(".class")[0]);
+            cmdList.addAll(Arrays.asList(vm_args.split(" ")));
+            cmdList.add("&&");
+            cmdList.add(".\\openjdk\\bin\\java.exe");
+            cmdList.add("com.ibm.jvm.TraceFormat");
+            cmdList.add("sample_logs\\"+srcFile.split(".class")[0]+".trc");
+            cmdList.add("sample_logs\\"+srcFile.split(".class")[0]+".fmt");
+            
+            ProcessBuilder pb = new ProcessBuilder();
+            pb.command(cmdList);
+            p = pb.start();
+            p.waitFor(); 
+            
+            /*Scanner s = new Scanner(p.getErrorStream());
+            while (s.hasNextLine()) {
+                System.out.println(s.nextLine());
+            }*/
+            
+            /*Scanner sc = new Scanner(p.getInputStream());
+            while (sc.hasNext())
+                System.out.println(sc.nextLine());*/
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     
     private void updateSelectedFilesList() {
