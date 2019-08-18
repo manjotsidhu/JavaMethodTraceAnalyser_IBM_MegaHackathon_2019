@@ -34,6 +34,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -51,6 +53,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -144,6 +147,9 @@ public class MainController {
     private VBox mainVBox;
     
     @FXML
+    private ProgressBar progressBar;
+    
+    @FXML
     private void initialize() {
         mainVBox.setVisible(false);
         methodTimeBarChart.setAnimated(false);
@@ -204,6 +210,7 @@ public class MainController {
     
     @FXML
     private void analyzeAction() {
+        progressBar.setProgress(ProgressBar.INDETERMINATE_PROGRESS);
         try {
             mainVBox.setVisible(true);
             
@@ -257,6 +264,7 @@ public class MainController {
         populateNMethodsTable();
         plotNMethodsBarChart();
         populateJSTTable();
+        progressBar.setProgress(0);
     }
     
     @FXML
@@ -343,10 +351,12 @@ public class MainController {
         Optional<String[]> result = dialog.showAndWait();
 
         result.ifPresent(data -> {
+            progressBar.setProgress(ProgressBar.INDETERMINATE_PROGRESS);
             classToLogGen(data[0], data[1], data[2]);
             logFiles.add(new File("sample_logs/" + data[0].split(".class")[0] + ".fmt"));
             stringLogFiles.add(logFiles.get(logFiles.size()-1).getName());
             updateSelectedFilesList();
+            progressBar.setProgress(0);
         });
     }
     
@@ -390,13 +400,36 @@ public class MainController {
             e.printStackTrace();
         }
     }
-    
+        
     private void updateSelectedFilesList() {
         selectedFilesListView.getItems().clear();
         ObservableList<String> data = FXCollections.<String>observableArrayList();
         data.addAll(stringLogFiles);
         
         selectedFilesListView.setOrientation(Orientation.VERTICAL);
+        ArrayList<Integer> buf = new ArrayList<>();
+        buf.add(1);
+        
+        selectedFilesListView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> list) {
+                final ListCell cell = new ListCell() {
+                    private Text text;
+
+                    @Override
+                    public void updateItem(Object item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            setText(item.toString());
+                            setTextFill(Tools.colorPicker(buf.get(buf.size()-1)-1));
+                            buf.add(buf.get(buf.size()-1)+1);
+                        }
+                    }
+                };
+
+                return cell;
+            }
+        });
         selectedFilesListView.getItems().addAll(data);
     }
     
@@ -516,6 +549,7 @@ public class MainController {
     
     private void populateMethodTimeTable() {
         methodTimeTable.getColumns().clear();
+        methodTimeTable.setStyle("-fx-selection-bar: skyblue;");
         ObservableList<String[]> methodTimeData = FXCollections.observableArrayList();
         methodTimeData.addAll(Arrays.asList(methodTimeArrayTable));
         methodTimeData.remove(0);//remove titles from data
@@ -528,7 +562,22 @@ public class MainController {
                     return new SimpleStringProperty((p.getValue()[colNo]));
                 }
             });
-
+            
+            tc.setCellFactory(e -> {
+                return new TableCell<ObservableList<String>, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(item);
+                        if (colNo >= 1) {
+                            setTextFill(Tools.colorPicker(colNo));
+                        }
+                    }
+                    
+                    
+                };
+            });
+            
             methodTimeTable.getColumns().add(tc);
         }
         methodTimeTable.setItems(methodTimeData);
@@ -537,6 +586,7 @@ public class MainController {
     
     private void populateJSTTable() {
         jSTTable.getColumns().clear();
+        jSTTable.setStyle("-fx-selection-bar: skyblue;");
         ObservableList<String[]> data = FXCollections.observableArrayList();
         data.addAll(Arrays.asList(jSTArrayTable));
         data.remove(0);//remove titles from data
@@ -548,6 +598,21 @@ public class MainController {
                 public ObservableValue<String> call(CellDataFeatures<String[], String> p) {
                     return new SimpleStringProperty((p.getValue()[colNo]));
                 }
+            });
+            
+            tc.setCellFactory(e -> {
+                return new TableCell<ObservableList<String>, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(item);
+                        if (colNo >= 1) {
+                            setTextFill(Tools.colorPicker(colNo));
+                        }
+                    }
+                    
+                    
+                };
             });
 
             jSTTable.getColumns().add(tc);
@@ -577,6 +642,7 @@ public class MainController {
     
     private void populateNMethodsTable() {
         nMethodsTable.getColumns().clear();
+        nMethodsTable.setStyle("-fx-selection-bar: skyblue;");
         ObservableList<String[]> nMethodsData = FXCollections.observableArrayList();
         nMethodsData.addAll(Arrays.asList(nMethodsArrayTable));
         nMethodsData.remove(0);//remove titles from data
@@ -588,6 +654,21 @@ public class MainController {
                 public ObservableValue<String> call(CellDataFeatures<String[], String> p) {
                     return new SimpleStringProperty((p.getValue()[colNo]));
                 }
+            });
+            
+            tc.setCellFactory(e -> {
+                return new TableCell<ObservableList<String>, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        setText(item);
+                        if (colNo >= 1) {
+                            setTextFill(Tools.colorPicker(colNo));
+                        }
+                    }
+                    
+                    
+                };
             });
 
             nMethodsTable.getColumns().add(tc);

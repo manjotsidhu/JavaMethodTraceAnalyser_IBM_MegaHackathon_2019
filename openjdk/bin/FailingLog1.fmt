@@ -1,0 +1,49 @@
+                Trace Summary
+
+Service level:
+        JRE 1.8.0 Windows 10 amd64-64 (build 1.8.0_181-b13)
+
+JVM startup options:
+-Xoptionsfile=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin\compressedrefs\options.default
+-Xlockword:mode=default,noLockword=java/lang/String,noLockword=java/util/MapEntry,noLockword=java/util/HashMap$Entry,noLockword=org/apache/harmony/luni/util/ModifiedMap$Entry,noLockword=java/util/Hashtable$Entry,noLockword=java/lang/invoke/MethodType,noLockword=java/lang/invoke/MethodHandle,noLockword=java/lang/invoke/CollectHandle,noLockword=java/lang/invoke/ConstructorHandle,noLockword=java/lang/invoke/ConvertHandle,noLockword=java/lang/invoke/ArgumentConversionHandle,noLockword=java/lang/invoke/AsTypeHandle,noLockword=java/lang/invoke/ExplicitCastHandle,noLockword=java/lang/invoke/FilterReturnHandle,noLockword=java/lang/invoke/DirectHandle,noLockword=java/lang/invoke/ReceiverBoundHandle,noLockword=java/lang/invoke/DynamicInvokerHandle,noLockword=java/lang/invoke/FieldHandle,noLockword=java/lang/invoke/FieldGetterHandle,noLockword=java/lang/invoke/FieldSetterHandle,noLockword=java/lang/invoke/StaticFieldGetterHandle,noLockword=java/lang/invoke/StaticFieldSetterHandle,noLockword=java/lang/invoke/IndirectHandle,noLockword=java/lang/invoke/InterfaceHandle,noLockword=java/lang/invoke/VirtualHandle,noLockword=java/lang/invoke/PrimitiveHandle,noLockword=java/lang/invoke/InvokeExactHandle,noLockword=java/lang/invoke/InvokeGenericHandle,noLockword=java/lang/invoke/VarargsCollectorHandle,noLockword=java/lang/invoke/ThunkTuple
+-Xjcl:jclse7b_29
+-Dcom.ibm.oti.vm.bootstrap.library.path=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin\compressedrefs;D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin
+-Dsun.boot.library.path=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin\compressedrefs;D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin
+-Djava.library.path=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin\compressedrefs;D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\manjo\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\manjo\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WinAVR-20080610\bin;C:\WinAVR-20080610\utils\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk1.8.0_171\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_191\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\3.6\bin;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\tools\php73;C:\Program Files (x86)\QuickTime\QTSystem;C:\Users\manjo\AppData\Local\Programs\Python\Python37-32\Scripts;C:\Users\manjo\AppData\Local\Programs\Python\Python37-32;C:\Users\manjo\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Users\manjo\AppData\Roaming\npm;C:\tools\Cmder;C:\Users\manjo\AppData\Roaming\Composer\vendor\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;.
+-Djava.home=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre
+-Djava.ext.dirs=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\lib\ext
+-Duser.dir=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\bin
+-Djava.class.path=.;
+-Xtrace:none
+-Xtrace:iprint=FailingLog1,output=FailingLog1.trc
+-Dsun.java.command=FailingLog1
+-Dsun.java.launcher=SUN_STANDARD
+
+Processor information:
+        Arch family:         AMD64
+        Processor Sub-type:  Opteron
+        Num Processors:      8
+        Big Endian:          false
+        Word size:           64
+        Using Trace Counter: J9 timer
+
+Trace activation information::
+        FORMAT=D:\Dump\OpenJDK8-OPENJ9_x64_Windows_201809061330\jdk8u181-b13\jre\lib;.
+        MAXIMAL=all{level1}
+        EXCEPTION=j9mm{gclogger}
+        MAXIMAL=all{level2}
+        none
+        iprint=FailingLog1
+        output=FailingLog1.trc
+
+Trace file header:
+        JVM start time: 04:01:38.025000000
+        Generations:    1
+        Pointer size:   8
+
+Active threads
+
+
+                Trace Formatted Data 
+
+Time (UTC)          Thread ID          Tracepoint ID       Type        Tracepoint Data

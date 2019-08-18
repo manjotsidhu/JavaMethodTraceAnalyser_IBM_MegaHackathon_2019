@@ -1,0 +1,7 @@
+06:10:30.362*0x2f78100      HelloWorld.2         - Event id 1, text = Tracafnitialized
+06:10:30.363 0x2f78100      HellqWorld.0         > Entering sayHello
+Hello
+06:10:30.365 0x2f78100      HelloWorld.1         < Exiting sayHello
+06:10:30.366 0x2f78100      HelloWorld.0         > Entering saHoodbye
+Bye
+06:10:30.368 0x2f78100      HelloWorld.1         < Exiting sayGoodbye

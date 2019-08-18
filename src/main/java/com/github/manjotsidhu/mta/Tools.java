@@ -15,6 +15,8 @@
  */
 package com.github.manjotsidhu.mta;
 
+import javafx.scene.paint.Color;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -401,5 +403,23 @@ public class Tools {
         }
         
         return max;
+    }
+    
+    public static Color colorPicker(int number) {
+        while (!(number <= 8)) {
+            number %= 8;
+        }
+       
+        switch (number) {
+            case 1: return Color.web("#F2612D");
+            case 2: return Color.web("#FBA51B");
+            case 3: return Color.web("#57B757");
+            case 4: return Color.web("#41A9C9");
+            case 5: return Color.web("#4258C9");
+            case 6: return Color.web("#9942C8");
+            case 7: return Color.web("#C74164");
+            case 8: return Color.web("#878787");
+            default: return null;
+        }
     }
 }
