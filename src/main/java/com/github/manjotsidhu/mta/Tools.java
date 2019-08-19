@@ -136,9 +136,11 @@ public class Tools {
      */
     public static int count(ArrayList<String> arr, String element) {
         int count = 0;
-        for (int iteration = 0; iteration < arr.size(); iteration++) {
-            if (arr.get(iteration).equals(element)) {
-                count++;
+        if (arr.contains(element)) {
+            for (int iteration = 0; iteration < arr.size(); iteration++) {
+                if (arr.get(iteration).contains(element)) {
+                    count++;
+                }
             }
         }
         return count;

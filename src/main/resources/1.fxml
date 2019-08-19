@@ -17,6 +17,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -146,150 +148,158 @@
                   </SplitPane>
           </children>
         </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
-               <content>
-                  <VBox fx:id="mainVBox" prefHeight="901.0" prefWidth="1013.0">
-                     <children>
-                        <Label prefHeight="26.0" prefWidth="982.0" text="Method Time Invocation">
-                           <VBox.margin>
-                              <Insets left="10.0" top="10.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Separator prefWidth="200.0">
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </Separator>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                           <children>
-                              <TableView fx:id="methodTimeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <BarChart fx:id="methodTimeBarChart" maxHeight="-Infinity" maxWidth="-Infinity">
-                                 <xAxis>
-                                    <CategoryAxis side="BOTTOM" />
-                                 </xAxis>
-                                 <yAxis>
-                                    <NumberAxis side="LEFT" />
-                                 </yAxis>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </BarChart>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </HBox>
-                        <Label prefHeight="38.0" prefWidth="981.0" text="Number of Times Methods Executed">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="10.0" top="15.0" />
-                           </padding>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
-                        <Separator prefWidth="200.0">
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </Separator>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                           <children>
-                              <TableView fx:id="nMethodsTable" maxHeight="-Infinity" minHeight="-Infinity" minWidth="600.0">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <BarChart fx:id="nMethodsBarChart" maxHeight="-Infinity" maxWidth="-Infinity">
-                                 <xAxis>
-                                    <CategoryAxis side="BOTTOM" />
-                                 </xAxis>
-                                 <yAxis>
-                                    <NumberAxis side="LEFT" />
-                                 </yAxis>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                              </BarChart>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                           <children>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+            <TabPane fx:id="tabPane" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Dashboard">
+                     <content>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <VBox fx:id="mainVBox" minHeight="-Infinity" minWidth="-Infinity">
                                  <children>
-                                    <Label minHeight="-Infinity" minWidth="-Infinity" text="Code-Flow">
+                                    <Label prefHeight="26.0" prefWidth="982.0" text="Method Time Invocation">
+                                       <VBox.margin>
+                                          <Insets left="10.0" top="10.0" />
+                                       </VBox.margin>
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" onAction="#visualizeCodeFlow" text="Visualize" />
-                                    <Separator minWidth="-Infinity">
+                                    <Separator prefWidth="200.0">
                                        <padding>
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </Separator>
-                                    <TableView fx:id="codeFlowTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
-                                       <columnResizePolicy>
-                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                       </columnResizePolicy>
-                                    </TableView>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets right="80.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                                 <children>
-                                    <Label minWidth="-Infinity" text="jStackTrace">
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                       <children>
+                                          <TableView fx:id="methodTimeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                          <BarChart fx:id="methodTimeBarChart" maxHeight="-Infinity" maxWidth="-Infinity">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </BarChart>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <Label prefHeight="38.0" prefWidth="981.0" text="Number of Times Methods Executed">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="10.0" top="15.0" />
+                                       </padding>
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Label>
-                                    <Separator minHeight="-Infinity" minWidth="-Infinity">
+                                    <Separator prefWidth="200.0">
                                        <padding>
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </Separator>
-                                    <TableView fx:id="jSTTable" minHeight="-Infinity" minWidth="600.0">
-                                       <columnResizePolicy>
-                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                       </columnResizePolicy>
-                                    </TableView>
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                       <children>
+                                          <TableView fx:id="nMethodsTable" maxHeight="-Infinity" minHeight="-Infinity" minWidth="600.0">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                             </columnResizePolicy>
+                                          </TableView>
+                                          <BarChart fx:id="nMethodsBarChart" maxHeight="-Infinity" maxWidth="-Infinity">
+                                             <xAxis>
+                                                <CategoryAxis side="BOTTOM" />
+                                             </xAxis>
+                                             <yAxis>
+                                                <NumberAxis side="LEFT" />
+                                             </yAxis>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </BarChart>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                       <children>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <Label minHeight="-Infinity" minWidth="-Infinity" text="Code-Flow">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button mnemonicParsing="false" onAction="#visualizeCodeFlow" text="Visualize" />
+                                                <Separator minWidth="-Infinity">
+                                                   <padding>
+                                                      <Insets bottom="10.0" />
+                                                   </padding>
+                                                </Separator>
+                                                <TableView fx:id="codeFlowTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets right="80.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                             <children>
+                                                <Label minWidth="-Infinity" text="jStackTrace">
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <Separator minHeight="-Infinity" minWidth="-Infinity">
+                                                   <padding>
+                                                      <Insets bottom="10.0" />
+                                                   </padding>
+                                                </Separator>
+                                                <TableView fx:id="jSTTable" minHeight="-Infinity" minWidth="600.0">
+                                                   <columnResizePolicy>
+                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy>
+                                                </TableView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" top="15.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
-                                 <HBox.margin>
-                                    <Insets />
-                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
                               </VBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="10.0" top="15.0" />
-                           </padding>
-                        </HBox>
-                     </children>
-                     <padding>
-                        <Insets left="20.0" />
-                     </padding>
-                  </VBox>
-               </content>
-        </ScrollPane>
+                           </content>
+                        </ScrollPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
         <AnchorPane maxWidth="400.0" prefWidth="400.0">
           <children>
                   <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

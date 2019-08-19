@@ -149,7 +149,7 @@ public class Analyser {
                 continue;
             }
             
-            int count = Tools.count(parsedText, (String) parsedText.get(timeIndex)) / 2;
+            int count = Tools.count(parsedText, (String) parsedText.get(timeIndex))/2;
             Tools.extendArrayIndex(aryResults, index);
             aryResults.set(index, count);
         }
