@@ -55,13 +55,18 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -70,6 +75,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javax.swing.JFrame;
+import org.apache.commons.io.FileUtils;
 
 /**
  * Main controller file for the backend of FXML.
@@ -92,6 +98,7 @@ public class MainController {
     
     private final ArrayList<File> logFiles = new ArrayList<>();
     private final ArrayList<String> stringLogFiles = new ArrayList<>();
+    private ArrayList<String> tabs = new ArrayList<>();
     
     private File pFile;
     
@@ -150,7 +157,11 @@ public class MainController {
     private ProgressBar progressBar;
     
     @FXML
+    private TabPane tabPane;
+    
+    @FXML
     private void initialize() {
+        tabPane.setTabClosingPolicy(TabClosingPolicy.SELECTED_TAB);
         mainVBox.setVisible(false);
         methodTimeBarChart.setAnimated(false);
         nMethodsBarChart.setAnimated(false);
@@ -360,6 +371,35 @@ public class MainController {
         });
     }
     
+    @FXML
+    private void handleFilesSelect(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() == 2){
+            File selectedFile = logFiles.get(selectedFilesListView.getSelectionModel().getSelectedIndex());
+
+            boolean exist = false;
+            for (Tab t: tabPane.getTabs()) {
+                if((t.getText()+" [Log Report]").contains(selectedFile.getName())) {
+                    exist = true;
+                    break;
+                }
+            }
+            if (!exist) {
+                String data = "";
+                try {
+                    data = FileUtils.readFileToString(selectedFile);
+                } catch (IOException ex) {
+                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                Tab newTab = new Tab(selectedFile.getName() + " [Log Report]");
+                TextArea t = new TextArea(data);
+                newTab.setContent(t);
+                tabPane.getTabs().add(newTab);
+                tabs.add(selectedFile.getName());
+            }
+        }
+    }
+    
     private void classToLogGen(String srcFile, String methods, String vm_args) {
         Process p;
         try {
@@ -432,7 +472,7 @@ public class MainController {
         });
         selectedFilesListView.getItems().addAll(data);
     }
-    
+        
     private void updateBAnomaliesList() {
         batchAnomaliesListView.getItems().clear();
         ObservableList<String> data = FXCollections.<String>observableArrayList();

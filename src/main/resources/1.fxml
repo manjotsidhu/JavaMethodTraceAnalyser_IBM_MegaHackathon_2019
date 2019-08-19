@@ -142,7 +142,7 @@
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <ListView fx:id="selectedFilesListView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
+                              <ListView fx:id="selectedFilesListView" onMouseClicked="#handleFilesSelect" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
