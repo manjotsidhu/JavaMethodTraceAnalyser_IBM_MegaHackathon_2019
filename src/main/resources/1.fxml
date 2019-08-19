@@ -150,7 +150,7 @@
         </AnchorPane>
             <TabPane fx:id="tabPane" minHeight="-Infinity" minWidth="-Infinity" tabClosingPolicy="UNAVAILABLE">
                <tabs>
-                  <Tab text="Dashboard">
+                  <Tab closable="false" text="Dashboard">
                      <content>
                         <ScrollPane prefHeight="200.0" prefWidth="200.0">
                            <content>
