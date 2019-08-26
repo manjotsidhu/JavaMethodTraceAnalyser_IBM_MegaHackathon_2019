@@ -15,7 +15,7 @@
  */
 package com.github.manjotsidhu.mta.main;
 
-import com.github.manjotsidhu.mta.Tools;
+import com.github.manjotsidhu.mta.tools.Tools;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.util.mxConstants;
 import com.mxgraph.view.mxEdgeStyle;

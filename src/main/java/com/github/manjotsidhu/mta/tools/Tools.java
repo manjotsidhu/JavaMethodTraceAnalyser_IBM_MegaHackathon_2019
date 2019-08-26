@@ -13,10 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.manjotsidhu.mta;
+package com.github.manjotsidhu.mta.tools;
 
 import javafx.scene.paint.Color;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 

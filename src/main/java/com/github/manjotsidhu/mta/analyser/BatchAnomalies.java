@@ -15,7 +15,7 @@
  */
 package com.github.manjotsidhu.mta.analyser;
 
-import com.github.manjotsidhu.mta.Tools;
+import com.github.manjotsidhu.mta.tools.Tools;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;

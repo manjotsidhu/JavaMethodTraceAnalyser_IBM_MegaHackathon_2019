@@ -1,15 +1,6 @@
-package com.github.manjotsidhu.mta.main;
+package com.github.manjotsidhu.mta.tools;
 
-import com.github.manjotsidhu.mta.Tools;
-import static com.github.manjotsidhu.mta.Tools.colorPicker;
-import java.io.File;
-import java.io.IOException;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static com.github.manjotsidhu.mta.tools.Tools.colorPicker;
 
 public class Test {
 

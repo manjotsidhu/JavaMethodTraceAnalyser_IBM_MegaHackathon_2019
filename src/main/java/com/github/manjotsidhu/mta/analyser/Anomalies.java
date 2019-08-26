@@ -1,6 +1,6 @@
 package com.github.manjotsidhu.mta.analyser;
 
-import com.github.manjotsidhu.mta.Tools;
+import com.github.manjotsidhu.mta.tools.Tools;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalTime;
