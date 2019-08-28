@@ -290,7 +290,7 @@ public class MainController {
             pFile = null;
             primaryBrowseButton.setText("Select Primary File");
         }
-        
+                
         updateSelectedFilesList();
     }
     
@@ -441,8 +441,7 @@ public class MainController {
         data.addAll(stringLogFiles);
         
         selectedFilesListView.setOrientation(Orientation.VERTICAL);
-        ArrayList<Integer> buf = new ArrayList<>();
-        buf.add(1);
+        
         
         selectedFilesListView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
@@ -455,8 +454,7 @@ public class MainController {
                         super.updateItem(item, empty);
                         if (!isEmpty()) {
                             setText(item.toString());
-                            setTextFill(Tools.colorPicker(buf.get(buf.size()-1)-1));
-                            buf.add(buf.get(buf.size()-1)+1);
+                            setTextFill(Tools.colorPicker(Tools.find(stringLogFiles, 0, item.toString())+1));
                         }
                     }
                 };

@@ -117,7 +117,7 @@ public class Parser {
     }
     
     private static String getMethodName(String tpData) {
-        String regex = "(\\w+)\\.(.+)\\(((.+)?)\\)(.+)\\sbytecode(\\s(static))?\\smethod(,\\sthis\\s=\\s(.+))?";
+        String regex = "(\\w+)\\.(.+)\\(((.+)?)\\)(.+)\\s(bytecode|compiled)(\\s(static))?\\smethod(,\\sthis\\s=\\s(.+))?";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(tpData);
         

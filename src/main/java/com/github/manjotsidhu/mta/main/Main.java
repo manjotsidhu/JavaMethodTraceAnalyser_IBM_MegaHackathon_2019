@@ -16,6 +16,9 @@
 package com.github.manjotsidhu.mta.main;
 
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -42,6 +45,9 @@ public class Main extends Application {
         
         MainController c = (MainController)loader.getController();       
         c.setStage(primaryStage);
+        
+        DoubleProperty fontSize = new SimpleDoubleProperty(12);
+        root.styleProperty().bind(Bindings.format("-fx-font-size: %.2fpt;", fontSize));
         
         Scene scene = new Scene(root);
         primaryStage.setTitle("Java Method Trace Analyzer");

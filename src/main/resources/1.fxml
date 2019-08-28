@@ -169,7 +169,7 @@
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </Separator>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                                        <children>
                                           <TableView fx:id="methodTimeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
                                              <HBox.margin>
@@ -211,7 +211,7 @@
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </Separator>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                                        <children>
                                           <TableView fx:id="nMethodsTable" maxHeight="-Infinity" minHeight="-Infinity" minWidth="600.0">
                                              <HBox.margin>
@@ -237,7 +237,7 @@
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                                        <children>
                                           <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
                                              <children>
