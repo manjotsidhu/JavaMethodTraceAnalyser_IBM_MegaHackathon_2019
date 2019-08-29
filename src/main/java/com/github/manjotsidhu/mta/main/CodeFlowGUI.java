@@ -58,7 +58,7 @@ public class CodeFlowGUI extends JFrame {
             int[] xOffset = new int[logFiles.size()];
             xOffset[0] = 15;
             for (int i = 1; i < xOffset.length; i++) {
-                xOffset[i] = xOffset[i-1]+350;
+                xOffset[i] = xOffset[i-1]+450;
             }
             yOffset = new int[logFiles.size()];
             for (int i = 0; i < yOffset.length; i++) {
@@ -84,6 +84,8 @@ public class CodeFlowGUI extends JFrame {
                             
                     if (t-1 > 0)
                         level = levels.get(j)[t-1];
+                    else
+                        level = 0;
                     
                     Object v1;
                     if (hs.size() > 1 && itr != 1)
@@ -99,6 +101,8 @@ public class CodeFlowGUI extends JFrame {
                     
                     if (t < levels.get(j).length)
                         level = levels.get(j)[t];
+                    else
+                        level = 0;
                                         
                     yOffset[j] = yOffset[j] + 50;
                     if (parsedText[itr][j] == null) continue;
@@ -126,11 +130,11 @@ public class CodeFlowGUI extends JFrame {
             @Override
             protected void paintBackground(Graphics arg0) {
                 super.paintBackground(arg0);
-                int x = 275;
-                for (int i = 0; i < logFiles.size()-1; i++) {
-                    arg0.drawLine(x, 0, x, s);
-                    x += 350;
-                }
+                //int x = 275;
+                //for (int i = 0; i < logFiles.size()-1; i++) {
+                //    arg0.drawLine(x, 0, x, s);
+                //    x += 350;
+                //}
             }
              
         };

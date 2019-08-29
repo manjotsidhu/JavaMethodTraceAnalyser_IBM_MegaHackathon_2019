@@ -130,7 +130,7 @@ public class BatchAnomalies {
     }
     
     void addMethodMissingAnomaly(String file, String method) {
-        batchAnomalies.add("Method '" + method + "' didn't completed its execution.");
+        batchAnomalies.add("Method '" + method + "' of File '" + file + "' didn't completed its execution.");
     }
     
     void addMethodMissingAnomaly(Map<String, String> methodsMissing) {

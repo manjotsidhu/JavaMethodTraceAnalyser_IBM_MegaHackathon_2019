@@ -65,8 +65,11 @@ public class Parser {
 
         while (logMatcher.find()) {
             if (findEventType(logMatcher.group(13)) == 0 || findEventType(logMatcher.group(13)) == 1) {
-                methodTime.add(logMatcher.group(1));
                 String additionalText = (logMatcher.group(16) != null) ? " " + logMatcher.group(16) : "";
+                if (getMethodName(logMatcher.group(14) + additionalText) == null)
+                    continue;
+                
+                methodTime.add(logMatcher.group(1));
                 methodText.add(getMethodName(logMatcher.group(14) + additionalText));
                 eventType.add(findEventType(logMatcher.group(13)));
                 String jstacktrace = (logMatcher.group(20) != null) ? logMatcher.group(20).replaceAll("(.+)(\\[\\d+\\](.+))", "$2") : null;
@@ -122,7 +125,10 @@ public class Parser {
         Matcher matcher = pattern.matcher(tpData);
         
         if(matcher.find()) {
-            return matcher.group(2);
+            if (matcher.group(2).equals("<init>"))
+                return null;
+            else
+                return matcher.group(2);
         } else {
             return tpData;
         }

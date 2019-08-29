@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
@@ -328,7 +329,7 @@ public class MainController {
         
                 fileChooser.setInitialDirectory(sampleLogFilesFolder);
                 File selectedFile = fileChooser.showOpenDialog(stage);
-
+                
                 if (selectedFile != null) {
                     browseField.setText(selectedFile.getName());
                 }
@@ -403,6 +404,10 @@ public class MainController {
             cmdList.add("cd");
             cmdList.add(System.getProperty("user.dir"));
             cmdList.add("&&");
+            cmdList.add("cp");
+            cmdList.add("sample_logs\\"+srcFile);
+            cmdList.add(srcFile);
+            cmdList.add("&&");
             cmdList.add(".\\openjdk\\bin\\java.exe");
             cmdList.add("\"-Xtrace:none\"");
             cmdList.add("\"-Xtrace:output=sample_logs\\"+srcFile.split(".class")[0]+".trc,maximal=mt,methods={"+methods+"},trigger=method{"+methods+",jstacktrace}\"");
@@ -422,9 +427,9 @@ public class MainController {
             /*Scanner s = new Scanner(p.getErrorStream());
             while (s.hasNextLine()) {
                 System.out.println(s.nextLine());
-            }*/
+            }
             
-            /*Scanner sc = new Scanner(p.getInputStream());
+            Scanner sc = new Scanner(p.getInputStream());
             while (sc.hasNext())
                 System.out.println(sc.nextLine());*/
             

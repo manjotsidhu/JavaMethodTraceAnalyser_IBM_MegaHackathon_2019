@@ -1,0 +1,463 @@
+                Trace Summary
+
+Service level:
+        JRE 1.8.0 Windows 10 amd64-64 (build 1.8.0_181-b13)
+
+JVM startup options:
+-Xoptionsfile=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin\compressedrefs\options.default
+-Xlockword:mode=default,noLockword=java/lang/String,noLockword=java/util/MapEntry,noLockword=java/util/HashMap$Entry,noLockword=org/apache/harmony/luni/util/ModifiedMap$Entry,noLockword=java/util/Hashtable$Entry,noLockword=java/lang/invoke/MethodType,noLockword=java/lang/invoke/MethodHandle,noLockword=java/lang/invoke/CollectHandle,noLockword=java/lang/invoke/ConstructorHandle,noLockword=java/lang/invoke/ConvertHandle,noLockword=java/lang/invoke/ArgumentConversionHandle,noLockword=java/lang/invoke/AsTypeHandle,noLockword=java/lang/invoke/ExplicitCastHandle,noLockword=java/lang/invoke/FilterReturnHandle,noLockword=java/lang/invoke/DirectHandle,noLockword=java/lang/invoke/ReceiverBoundHandle,noLockword=java/lang/invoke/DynamicInvokerHandle,noLockword=java/lang/invoke/FieldHandle,noLockword=java/lang/invoke/FieldGetterHandle,noLockword=java/lang/invoke/FieldSetterHandle,noLockword=java/lang/invoke/StaticFieldGetterHandle,noLockword=java/lang/invoke/StaticFieldSetterHandle,noLockword=java/lang/invoke/IndirectHandle,noLockword=java/lang/invoke/InterfaceHandle,noLockword=java/lang/invoke/VirtualHandle,noLockword=java/lang/invoke/PrimitiveHandle,noLockword=java/lang/invoke/InvokeExactHandle,noLockword=java/lang/invoke/InvokeGenericHandle,noLockword=java/lang/invoke/VarargsCollectorHandle,noLockword=java/lang/invoke/ThunkTuple
+-Xjcl:jclse7b_29
+-Dcom.ibm.oti.vm.bootstrap.library.path=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin\compressedrefs;D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin
+-Dsun.boot.library.path=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin\compressedrefs;D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin
+-Djava.library.path=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin\compressedrefs;D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\AdoptOpenJDK\jdk-8.0.222.10-openj9\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WinAVR-20080610\bin;C:\WinAVR-20080610\utils\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\nodejs\;C:\Program Files\MongoDB\Server\3.6\bin;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\tools\php73;C:\Program Files (x86)\QuickTime\QTSystem\;C:\Users\manjo\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\manjo\AppData\Local\Programs\Python\Python37-32\;C:\Users\manjo\AppData\Local\Microsoft\WindowsApps;C:\Program Files\heroku\bin;C:\Users\manjo\AppData\Roaming\npm;C:\tools\Cmder;C:\Users\manjo\AppData\Roaming\Composer\vendor\bin;;C:\Users\manjo\AppData\Local\Programs\Microsoft VS Code\bin;.
+-Djava.home=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre
+-Djava.ext.dirs=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\lib\ext
+-Duser.dir=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\bin
+-Djava.class.path=.;
+-Xtrace:none
+-Xtrace:output=logGen1.trc,maximal=mt,methods={logTemplate.*,jstacktrace},trigger=method{logTemplate.*,jstacktrace}
+-Dsun.java.command=logTemplate 35 5 7 2 17 16 36 7 30 27
+-Dsun.java.launcher=SUN_STANDARD
+
+Processor information:
+        Arch family:         AMD64
+        Processor Sub-type:  Opteron
+        Num Processors:      8
+        Big Endian:          false
+        Word size:           64
+        Using Trace Counter: J9 timer
+
+Trace activation information::
+        FORMAT=D:\IBMHackChallenge_19\MethodTraceAnalyser\openjdk\jre\lib;.
+        MAXIMAL=all{level1}
+        EXCEPTION=j9mm{gclogger}
+        MAXIMAL=all{level2}
+        none
+        output=logGen1.trc
+        maximal=mt
+        methods={logTemplate.*,jstacktrace}
+        trigger={method{logTemplate.*,jstacktrace}}
+
+Trace file header:
+        JVM start time: 05:53:52.936000000
+        Generations:    1
+        Pointer size:   8
+
+Active threads
+        0x0000000003319a00  main
+
+
+                Trace Formatted Data 
+
+Time (UTC)          Thread ID          Tracepoint ID       Type        Tracepoint Data
+05:53:53.041857842 *0x0000000003319a00 mt.3                Entry      >logTemplate.main([Ljava/lang/String;)V bytecode static method
+05:53:53.041860041  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.041866240  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.main (logTemplate.java:97)
+05:53:53.042147555  0x0000000003319a00 mt.0                Entry      >logTemplate.<init>(IIIIIIIIII)V bytecode method, this = 0xffe47268
+05:53:53.042148455  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.042151154  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.<init> (logTemplate.java:11)
+05:53:53.042152954  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.main (logTemplate.java:113)
+05:53:53.042162651  0x0000000003319a00 mt.6                Exit       <logTemplate.<init>(IIIIIIIIII)V bytecode method
+05:53:53.042163850  0x0000000003319a00 mt.0                Entry      >logTemplate.run()V bytecode method, this = 0xffe47268
+05:53:53.042164250  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.042165550  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.run (logTemplate.java:25)
+05:53:53.042166949  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.main (logTemplate.java:114)
+05:53:53.042168149  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.042168549  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.042169649  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.042170948  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.042172148  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.059237228  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.059240327  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.059241527  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.059247925  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.059250924  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.059253423  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.075875737  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.075877936  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.075878736  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.075884234  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.075886933  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.075889533  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.092104768  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.092106867  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.092107567  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.092112566  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.092115465  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.092118064  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.108877236  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.108879336  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.108880235  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.108885134  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.108887933  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.108890632  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.125696890  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.125699090  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.125699890  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.125704888  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.125707687  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.125710386  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.142621813  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.142624012  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.142624712  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.142629711  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.142632610  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.142635209  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.159776567  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.159779566  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.159780765  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.159786863  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.159791062  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.159795161  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.175602819  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.175605018  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.175605818  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.175610916  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.175613715  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.175616415  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.192451364  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.192453463  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.192454263  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.192459362  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.192462361  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.192465060  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.208496950  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.208499150  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.208499950  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.208504948  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.208507747  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.208510146  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.225202839  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.225205038  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.225205838  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.225210836  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.225213635  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.225216235  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.241926721  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.241928921  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.241929721  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.241935019  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.241938118  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.241940917  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.258215235  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.258217634  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.258218534  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.258223832  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.258226831  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.258229431  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.275082475  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.275084674  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.275085474  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.275090472  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.275093371  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.275096071  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.291185044  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.291187343  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.291188043  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.291193242  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.291196141  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.291198740  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.308080075  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.308082075  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.308082875  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.308087973  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.308090872  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.308093571  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.325103968  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.325106867  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.325107667  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.325114365  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.325117264  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.325119964  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.342032090  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.342034689  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.342035689  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.342042287  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.342045386  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.342048385  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.358969209  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.358971808  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.358972708  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.358979806  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.358982605  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.358985404  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.375868339  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.375872238  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.375873437  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.375880435  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.375883734  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.375886434  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.392847345  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.392849045  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.392849745  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.392853943  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.392855843  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.392857642  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.409812156  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.409814355  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.409815355  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.409819854  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.409839148  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.409843346  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.426396081  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.426398280  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.426399180  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.426405378  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.426408177  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.426410976  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.442754873  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.442757172  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.442758072  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.442763271  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.442766170  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.442799160  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.459568029  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.459570328  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.459571628  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.459576726  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.459579826  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.459582625  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.476510346  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.476512746  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.476513545  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.476519144  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.476522043  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.476524942  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.493143656  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.493146256  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.493147455  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.493153753  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.493157252  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.493160151  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.509412876  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.509416974  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.509418274  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.509426272  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.509431270  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.509435669  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.526390682  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.526392982  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.526393981  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.526400479  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.526403578  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.526406478  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.543495251  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.543498150  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.543499150  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.543505348  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.543508147  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.543511046  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.559998900  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.560001499  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.560002399  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.560008097  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.560010996  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.560013995  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.576834649  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.576837348  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.576838348  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.576844546  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.576847445  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.576850144  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.593807957  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.593810656  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.593811656  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.593817954  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.593821053  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.593823952  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.610123562  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.610126162  0x0000000003319a00 mt.0                Entry      >logTemplate.method1()V bytecode method, this = 0xffe47268
+05:53:53.610127361  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.610133260  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method1 (logTemplate.java:42)
+05:53:53.610136359  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:26)
+05:53:53.610139158  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.627095371  0x0000000003319a00 mt.6                Exit       <logTemplate.method1()V bytecode method
+05:53:53.627102169  0x0000000003319a00 mt.0                Entry      >logTemplate.method2()V bytecode method, this = 0xffe47268
+05:53:53.627103169  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.627108267  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method2 (logTemplate.java:53)
+05:53:53.627111066  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:29)
+05:53:53.627113665  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.663878336  0x0000000003319a00 mt.6                Exit       <logTemplate.method2()V bytecode method
+05:53:53.663880735  0x0000000003319a00 mt.0                Entry      >logTemplate.method2()V bytecode method, this = 0xffe47268
+05:53:53.663881635  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.663887033  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method2 (logTemplate.java:53)
+05:53:53.663889933  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:29)
+05:53:53.663892532  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.699898830  0x0000000003319a00 mt.6                Exit       <logTemplate.method2()V bytecode method
+05:53:53.699901029  0x0000000003319a00 mt.0                Entry      >logTemplate.method2()V bytecode method, this = 0xffe47268
+05:53:53.699901829  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.699906827  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method2 (logTemplate.java:53)
+05:53:53.699909827  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:29)
+05:53:53.699912526  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.736877436  0x0000000003319a00 mt.6                Exit       <logTemplate.method2()V bytecode method
+05:53:53.736879836  0x0000000003319a00 mt.0                Entry      >logTemplate.method2()V bytecode method, this = 0xffe47268
+05:53:53.736880635  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.736885734  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method2 (logTemplate.java:53)
+05:53:53.736888833  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:29)
+05:53:53.736891332  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.773551234  0x0000000003319a00 mt.6                Exit       <logTemplate.method2()V bytecode method
+05:53:53.773553833  0x0000000003319a00 mt.0                Entry      >logTemplate.method2()V bytecode method, this = 0xffe47268
+05:53:53.773554833  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.773561031  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method2 (logTemplate.java:53)
+05:53:53.773563930  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:29)
+05:53:53.773566829  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.809915325  0x0000000003319a00 mt.6                Exit       <logTemplate.method2()V bytecode method
+05:53:53.809921923  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.809923123  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.809928221  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.809931020  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.809933819  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.817518544  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.817520943  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.817521743  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.817526941  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.817530040  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.817532440  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.825479256  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.825481455  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.825482155  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.825487053  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.825490052  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.825492752  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.832990302  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.832992702  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.832993401  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.832998400  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.833001199  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.833003698  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.840633609  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.840636009  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.840636808  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.840642207  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.840645206  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.840647805  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.848216934  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.848219334  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.848220333  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.848226632  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.848245726  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.848247225  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.855163650  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.855165850  0x0000000003319a00 mt.0                Entry      >logTemplate.method3()V bytecode method, this = 0xffe47268
+05:53:53.855166749  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.855172048  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method3 (logTemplate.java:64)
+05:53:53.855175047  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:32)
+05:53:53.855177746  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.863192442  0x0000000003319a00 mt.6                Exit       <logTemplate.method3()V bytecode method
+05:53:53.863200139  0x0000000003319a00 mt.0                Entry      >logTemplate.method4()V bytecode method, this = 0xffe47268
+05:53:53.863201439  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.863206937  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method4 (logTemplate.java:75)
+05:53:53.863209937  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:35)
+05:53:53.863212736  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.894157552  0x0000000003319a00 mt.6                Exit       <logTemplate.method4()V bytecode method
+05:53:53.894160451  0x0000000003319a00 mt.0                Entry      >logTemplate.method4()V bytecode method, this = 0xffe47268
+05:53:53.894161451  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.894168049  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method4 (logTemplate.java:75)
+05:53:53.894171348  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:35)
+05:53:53.894174047  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.925106268  0x0000000003319a00 mt.6                Exit       <logTemplate.method4()V bytecode method
+05:53:53.925117464  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:53.925119164  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.925127761  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:53.925131660  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:53.925135759  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.953126761  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:53.953129961  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:53.953131360  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.953137958  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:53.953141157  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:53.953144056  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:53.980983305  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:53.980986204  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:53.981020693  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:53.981027691  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:53.981030990  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:53.981033689  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.008205638  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.008208137  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.008209037  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.008214235  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.008217434  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.008220033  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.036283015  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.036285514  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.036286214  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.036291312  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.036294211  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.036296710  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.064000099  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.064002399  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.064003299  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.064008097  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.064011096  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.064013895  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.091628111  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.091630210  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.091631010  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.091635809  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.091638508  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.091641007  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.119552534  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.119558332  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.119559332  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.119564530  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.119567629  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.119570228  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.147578526  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.147581525  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.147582425  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.147588523  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.147591522  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.147594021  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.175452964  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.175459362  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.175460561  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.175466060  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.175469359  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.175472158  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.202577826  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.202580225  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.202581125  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.202586324  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.202589223  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.202592022  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.230777666  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.230784364  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.230785264  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.230795361  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.230798460  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.230801259  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.258412076  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.258414575  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.258415475  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.258421573  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.258424572  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.258427171  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.286197040  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.286202939  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.286204138  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.286210236  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.286213136  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.286215735  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.313904728  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.313907627  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.313908627  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.313915225  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.313918324  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.313921023  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.340997800  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.341007297  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.341008497  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.341014795  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.341018094  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.341020693  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.368780465  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.368783165  0x0000000003319a00 mt.0                Entry      >logTemplate.method5()V bytecode method, this = 0xffe47268
+05:53:54.368784564  0x0000000003319a00 j9trc_aux.0         Event       jstacktrace:
+05:53:54.368790562  0x0000000003319a00 j9trc_aux.1         Event       [1] logTemplate.method5 (logTemplate.java:86)
+05:53:54.368793761  0x0000000003319a00 j9trc_aux.1         Event       [2] logTemplate.run (logTemplate.java:38)
+05:53:54.368796661  0x0000000003319a00 j9trc_aux.1         Event       [3] logTemplate.main (logTemplate.java:114)
+05:53:54.396111266  0x0000000003319a00 mt.6                Exit       <logTemplate.method5()V bytecode method
+05:53:54.396113665  0x0000000003319a00 mt.6                Exit       <logTemplate.run()V bytecode method
+05:53:54.396114365  0x0000000003319a00 mt.9                Exit       <logTemplate.main([Ljava/lang/String;)V bytecode static method
+05:53:54.396121663  0x0000000003319a00 dg.262              Debug       ***** Thread termination - trace purged *****

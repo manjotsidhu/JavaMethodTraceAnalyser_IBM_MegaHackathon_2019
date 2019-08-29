@@ -171,7 +171,7 @@
                                     </Separator>
                                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <TableView fx:id="methodTimeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
+                                          <TableView fx:id="methodTimeTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0" HBox.hgrow="ALWAYS">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin>
@@ -213,7 +213,7 @@
                                     </Separator>
                                     <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <TableView fx:id="nMethodsTable" maxHeight="-Infinity" minHeight="-Infinity" minWidth="600.0">
+                                          <TableView fx:id="nMethodsTable" maxHeight="-Infinity" minHeight="-Infinity" minWidth="600.0" HBox.hgrow="ALWAYS">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin>
@@ -237,58 +237,43 @@
                                           <Insets bottom="10.0" />
                                        </padding>
                                     </HBox>
-                                    <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                                             <children>
-                                                <Label minHeight="-Infinity" minWidth="-Infinity" text="Code-Flow">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Button mnemonicParsing="false" onAction="#visualizeCodeFlow" text="Visualize" />
-                                                <Separator minWidth="-Infinity">
-                                                   <padding>
-                                                      <Insets bottom="10.0" />
-                                                   </padding>
-                                                </Separator>
-                                                <TableView fx:id="codeFlowTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="600.0">
-                                                   <columnResizePolicy>
-                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                                   </columnResizePolicy>
-                                                </TableView>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets right="80.0" />
-                                             </HBox.margin>
-                                          </VBox>
-                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
-                                             <children>
-                                                <Label minWidth="-Infinity" text="jStackTrace">
-                                                   <font>
-                                                      <Font size="15.0" />
-                                                   </font>
-                                                </Label>
-                                                <Separator minHeight="-Infinity" minWidth="-Infinity">
-                                                   <padding>
-                                                      <Insets bottom="10.0" />
-                                                   </padding>
-                                                </Separator>
-                                                <TableView fx:id="jSTTable" minHeight="-Infinity" minWidth="600.0">
-                                                   <columnResizePolicy>
-                                                      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                                   </columnResizePolicy>
-                                                </TableView>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </VBox>
-                                       </children>
+                                    <Label minHeight="-Infinity" minWidth="-Infinity" text="Code-Flow">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Button mnemonicParsing="false" onAction="#visualizeCodeFlow" text="Visualize" />
+                                    <Separator minWidth="-Infinity">
                                        <padding>
-                                          <Insets bottom="10.0" top="15.0" />
+                                          <Insets bottom="10.0" />
                                        </padding>
-                                    </HBox>
+                                    </Separator>
+                                    <TableView fx:id="codeFlowTable" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <Label minWidth="-Infinity" text="jStackTrace">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <opaqueInsets>
+                                          <Insets top="20.0" />
+                                       </opaqueInsets>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Separator minHeight="-Infinity" minWidth="-Infinity">
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </Separator>
+                                    <TableView fx:id="jSTTable" minHeight="-Infinity" minWidth="-Infinity" VBox.vgrow="ALWAYS">
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
                                  </children>
                                  <padding>
                                     <Insets left="20.0" />
